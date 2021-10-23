@@ -1,6 +1,6 @@
 import unittest
-from Credentials import Credentials
-from User import Users
+from credentials import Credentials
+from user import Users
 
 #first test
 
@@ -21,8 +21,15 @@ def test_init(self):
     '''
     test case to test if the object is initialized properly
     '''
-    self.assertEqual(self.new_users.user_name, "Jay_Ian")
-    self.assertEqual(self.new_users.f_name, "Ian")
-    self.assertEqual(self.new_users.l_name, "Wanarua")
-    self.assertEqual(self.new_users.password, "Pass254")
-    
+    self.assertEqual(self.new_user.user_name, "Jay_Ian")
+    self.assertEqual(self.new_user.f_name, "Ian")
+    self.assertEqual(self.new_user.l_name, "Wanarua")
+    self.assertEqual(self.new_user.password, "Pass254")
+
+def test_credentials_init(self):
+    '''
+    test case to test if the object is initialized properly
+    '''
+    self.assertEqual(self.new_credentials.account_name, "Twitter")
+    self.assertEqual(self.new_credentials.username, "Jay_Ian")
+    self.assertEqual(self.new_credentials.password, "Pass254")
