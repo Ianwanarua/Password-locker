@@ -37,7 +37,7 @@ def user_exist(cls, username, password):
 def findbyname(cls,  username, password):
     """ Method to find user by searching their name"""
     for user in cls.user_list:
-         if user.username == username and user.password == password:
+            if user.username == username and user.password == password:
                 return user
 
         

@@ -21,4 +21,8 @@ def test_init(self):
     '''
     test case to test if the object is initialized properly
     '''
+    self.assertEqual(self.new_users.user_name, "Jay_Ian")
+    self.assertEqual(self.new_users.f_name, "Ian")
+    self.assertEqual(self.new_users.l_name, "Wanarua")
+    self.assertEqual(self.new_users.password, "Pass254")
     
