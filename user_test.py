@@ -16,7 +16,7 @@ class TestUsers(unittest.TestCase):
         method to run before test case
         '''
         self.new_user = Users("Jay_Ian","Ian","Wanarua","Pass254")
-        self.new_credentials = Credentials("Twitter","Jay_Ian","Pass254")
+        self.new_credentials = Credentials("Twitter","_Ian_","Pass123")
 
     def test_init(self):
         '''
@@ -32,8 +32,8 @@ class TestUsers(unittest.TestCase):
         test case to test if the object is initialized properly
         '''
         self.assertEqual(self.new_credentials.account_name, "Twitter")
-        self.assertEqual(self.new_credentials.username, "Jay_Ian")
-        self.assertEqual(self.new_credentials.password, "Pass254")
+        self.assertEqual(self.new_credentials.username, "_Ian_")
+        self.assertEqual(self.new_credentials.password, "Pass123")
 
         #second test
 
@@ -74,7 +74,7 @@ class TestUsers(unittest.TestCase):
         test case to check if we  can save multiple credentials to the credentials lists
         '''
         self.new_credentials.save_account()
-        test_credentials = Credentials("FB","GK","mason007")
+        test_credentials = Credentials("FB","GKK","mason7")
         test_credentials.save_account()
         self.assertEqual(len(Credentials.credentials_list),2)
     
@@ -84,7 +84,7 @@ class TestUsers(unittest.TestCase):
         Test delete to see if we can remove user credentials from list
         '''
         self.new_credentials.save_account()
-        test_credentials = Credentials("Twitter","Jay_Ian","pass254")
+        test_credentials = Credentials("Twitter","_Ian_","pass123")
         test_credentials.save_account()
         self.assertEqual(len(Credentials.credentials_list),2)
     #5th test
@@ -107,7 +107,7 @@ class TestUsers(unittest.TestCase):
         '''
 
         self.new_credentials.save_account()
-        test_credentials = Credentials("Twitter","Jay_Ian","pass254")
+        test_credentials = Credentials("Twitter","_Ian_","pass123")
         test_credentials.save_account()
 
         credentials_found = Credentials.find_by_account_name("Twitter")
@@ -130,10 +130,10 @@ class TestUsers(unittest.TestCase):
         test if account exists by searching username
         '''
         self.new_credentials.save_account()
-        test_credentials = Credentials("Twitter","Jay_Ian","pass254")
+        test_credentials = Credentials("Twitter","_Ian_","pass123")
         test_credentials.save_account()
 
-        account_exist = Credentials.account_exist("Jay_Ian")
+        account_exist = Credentials.account_exist("_Ian_")
         self.assertTrue(account_exist)
         
     def test_display_credentials(self):
