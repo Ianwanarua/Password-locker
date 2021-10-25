@@ -1,4 +1,4 @@
-# Pass Lock
+# Password Locker
 
 ## Author
 
