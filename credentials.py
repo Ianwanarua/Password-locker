@@ -17,22 +17,22 @@ class Credentials:
         Credentials.credentials_list.append(self)
 
     @classmethod
-    def account_exist(cls, account_name):
+    def account_exist(cls, username):
         '''
          Method that checks if an account exists from the credentials list.
-        Args:
-            string: account name to search if it exists
+         
         Returns :
             Boolean: True or false depending if the account exists
         '''
-        for account in cls.credentials_list:
-            if account.account_name == account_name:
+        for Credentials in cls.credentials_list:
+            if Credentials.username == username:
                 return True
 
         return False
+    
 
     @classmethod
-    def findby_account_name(cls, account_name):
+    def find_by_account_name(cls, account_name):
         """
         method to search account by account name
         """
