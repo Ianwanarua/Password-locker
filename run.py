@@ -130,7 +130,7 @@ def main():
                 print('\n')
                 print("****************")
                 print('\n')
-                print("Use these short codes :log na - create a new account credential, da - display account, fa -find an account,dl - delete account, ex -exit the account list ")
+                print("Use these short codes : na - create a new account credential, da - display account, fa -find an account,dl - delete account, ex -exit the account list ")
                 print('\n')
                 print("****************")
                 print('\n')
