@@ -22,7 +22,7 @@ class TestUsers(unittest.TestCase):
         '''
         test case to test if the object is initialized properly
         '''
-        self.assertEqual(self.new_user.user_name, "Jay_Ian")
+        self.assertEqual(self.new_user.username, "Jay_Ian")
         self.assertEqual(self.new_user.first_name, "Ian")
         self.assertEqual(self.new_user.last_name, "Wanarua")
         self.assertEqual(self.new_user.password, "Pass254")
@@ -79,9 +79,50 @@ class TestUsers(unittest.TestCase):
         self.assertEqual(len(Credentials.credentials_list),2)
     
     #4th Test
+    def test_delete_credentials(self):
+        '''
+        Test delete to see if we can remove user credentials from list
+        '''
+        self.new_credentials.save_account()
+        test_credentials = Credentials("Twitter","Jay_Ian","pass254")
+        test_credentials.save_account()
+        self.assertEqual(len(Credentials.credentials_list),2)
+    #5th test
     
+    def test_find_user_byusername(self):
+        '''
+        Test to find if user exist by searching in their username
+        '''
+        self.new_user.save_users()
+        test_user = Users("GK","Gedion","Kavivya","mason007")
+        test_user.save_users()
 
+        User_exists = Users.findby_username("GK")
+        self.assertEqual(User_exists.username,test_user.username)
 
+    
+    def test_find_by_account_name(self): #credentials
+        '''
+        Test to check if an account exists by searching the accounts name
+        '''
+
+        self.new_credentials.save_account()
+        test_credentials = Credentials("Twitter","Jay_Ian","pass254")
+        test_credentials.save_account()
+
+        credentials_found = Credentials.find_by_account_name("Twitter")
+        self.assertEqual(credentials_found.account_name,test_credentials.account_name)
+        
+    def test_account_exist(self):
+        '''
+        test if account exists by searching username
+        '''
+        self.new_credentials.save_account()
+        test_credentials = Credentials("Twitter","Jay_Ian","pass254")
+        test_credentials.save_account()
+
+        account_exist = Credentials.account_exist("Jay_Ian")
+        self.assertTrue(account_exist)
 
 if __name__ == '__main__':
     unittest.main()
