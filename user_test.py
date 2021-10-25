@@ -113,6 +113,18 @@ class TestUsers(unittest.TestCase):
         credentials_found = Credentials.find_by_account_name("Twitter")
         self.assertEqual(credentials_found.account_name,test_credentials.account_name)
         
+    def test_user_exist(self):
+        '''
+        To check if a user is already registered
+        '''
+        self.new_user.save_users()
+        test_user = Users("GK","Gedion","Kavivya","mason007")
+        test_user.save_users()
+
+        user_exist = Users.user_exist("GK","mason007")
+        
+        self.assertTrue(user_exist)
+        
     def test_account_exist(self):
         '''
         test if account exists by searching username
@@ -123,6 +135,12 @@ class TestUsers(unittest.TestCase):
 
         account_exist = Credentials.account_exist("Jay_Ian")
         self.assertTrue(account_exist)
+        
+    def test_display_credentials(self):
+        '''
+        Test to return list of user credentials saved
+        '''
+        self.assertEqual(Credentials.display_account(),Credentials.credentials_list)
 
 if __name__ == '__main__':
     unittest.main()
