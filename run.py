@@ -42,15 +42,27 @@ def user_exist(password):
     return Users.user_exist(password)
 
 def account_exist(username):
+    '''
+    This function will check if account exist
+    '''
     return Credentials.account_exist(username)
 
 def find_by_account_name(account_name):
+    '''
+    This function finds account credentials by searching account name
+    '''
     return Credentials.find_by_account_name(account_name)
 
 def verify_user(username,password):
+    '''
+    This function will verify user exist
+    '''
     return Users.user_exist(username,password)
 
 def delete_account(account_name):
+    '''
+    function will delete credentials from the list
+    '''
     Credentials.credentials_list.remove(account_name)
 
 def display_account():
@@ -58,13 +70,13 @@ def display_account():
     Function that returns all the saved accounts
     '''
     return Credentials.display_account()
-def choose(Question):
+def choose(question):
     '''
     Here the user will respond to if to generate password
     '''
     response = None
     while response not in ('y', 'n'):
-        response = input(Question).lower()
+        response = input(question).lower()
     return response
 
 def main():
@@ -91,14 +103,14 @@ def main():
     save_users(create_user(username,firstname,lastname,password))
     print('\n')
     
-    print(f"{firstname} ,Your have created your account successfully")
-    print('\n')
+    # print(f"{firstname} ,Your have created your account successfully")
+    # print('\n')
     
     if username=='' or firstname=='' or lastname=='' or password=='':
         print("Fill in the  fields")
     else:
         save_users(create_user(username,firstname,lastname,password))
-        print(f"{username} You have created your account successfully.")
+        print(f"Username:{username} Password: {password} You have created your account successfully.")
 
         print("Login with your details to proceed")
         print('\n')
@@ -118,13 +130,13 @@ def main():
                 print('\n')
                 print("****************")
                 print('\n')
-                print("Use these short codes :log ca - create a new account credential, da - display account, fa -find an account,dl - delete account, ex -exit the account list ")
+                print("Use these short codes :log na - create a new account credential, da - display account, fa -find an account,dl - delete account, ex -exit the account list ")
                 print('\n')
                 print("****************")
                 print('\n')
                 
                 shortcode = input().lower()
-                if shortcode == 'ca':
+                if shortcode == 'na':
                     print("New Credential Account")
                     print("-"*10)
 
@@ -133,6 +145,8 @@ def main():
 
                     print("Username")
                     username = input()
+                    
+                    
                     generate = choose("Generate password? (y/n):")
                     if generate == "y":
                             value = 8
@@ -187,7 +201,6 @@ def main():
                     print("Enter name of account to delete")
                     search_account = input()
                     if find_by_account_name(search_account):
-                        print("Please wait ...")
                         check_account = find_by_account_name(search_account)
                         delete_account(check_account)
                         print(
@@ -200,7 +213,7 @@ def main():
                     print("Bye .......")
                     break
                 else:
-                    print("I really didn't get that. Please use the short codes")
+                    print("Please use the short codes")
                     
         # else:
         #     refresh()
