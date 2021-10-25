@@ -5,39 +5,40 @@ class Users:
     
     user_list = []
     
-    def __init__ (self,user_name,first_name,last_name,password):
+    def __init__ (self,username,first_name,last_name,password):
             '''
             This is a blueprint that every user instance must conform to
             '''
-            self.user_name = user_name
+            self.username = username
             self.first_name = first_name
             self.last_name = last_name
             self.password = password
 
     def save_users(self):
-            """Method to save new account to the users_list"""
+            """Method to save new account to the user_list
+            """
             Users.user_list.append(self)
             
     @classmethod
     def user_exist(cls, username, password):
             '''
             Method that checks if a user exists from the user list.
-            Args:
-                string: username to search if it exists
             Returns :
-                Boolean: True or false depending if the account exists
+                Boolean: True or false if the user exists
             '''
             for user in cls.user_list:
                 if user.username == username and user.password == password:
                     return True
 
             return False
+        
 
     @classmethod
-    def findbyname(cls,  username, password):
-        """ Method to find user by searching their name"""
+    def findby_username(cls,  username):
+        """ Method to find user by searching their username
+        """
         for user in cls.user_list:
-                if user.username == username and user.password == password:
+                if user.username == username:
                     return user
 
         
