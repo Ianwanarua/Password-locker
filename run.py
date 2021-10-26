@@ -150,12 +150,13 @@ def main():
                     
                     generate = choose("Generate password? (y/n):")
                     if generate == "y":
-                            value = 8
-                            upper = string.ascii_uppercase
+                            length = int(input('Enter the length of the password: '))
                             lower = string.ascii_lowercase
+                            upper = string.ascii_uppercase
                             num = string.digits
-                            all = upper + lower + num
-                            temp = random.sample(all,value)
+                            symbols = string.punctuation
+                            all = lower + upper + num + symbols
+                            temp = random.sample(all,length)
                             password = "".join(temp)
                             
                     else:
