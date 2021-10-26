@@ -43,8 +43,7 @@ Here is a run through of how to set up the application:
 
 ## Known Bugs
 
-* No known bugs
-Be sure to report more bugs by contacting me.
+* There were no bugs.
 
 ## Support and Further contact details
 
