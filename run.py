@@ -1,8 +1,8 @@
 #!/usr/bin/env python3.9
 from credentials import Credentials
 from user import Users
-import random
 import string
+import random
 
 
 def create_user(username,first_name,lastname,password):
@@ -70,14 +70,18 @@ def display_account():
     Function that returns all the saved accounts
     '''
     return Credentials.display_account()
+
 def choose(question):
     '''
     Here the user will respond to if to generate password
     '''
     response = None
-    while response not in ('y', 'n'):
+    while response not in ("y", "n"):
         response = input(question).lower()
-    return response
+        return response
+    
+
+
 
 def main():
     print("Hello welcome to password-locker. What is your name?")
@@ -102,9 +106,6 @@ def main():
     
     save_users(create_user(username,firstname,lastname,password))
     print('\n')
-    
-    # print(f"{firstname} ,Your have created your account successfully")
-    # print('\n')
     
     if username=='' or firstname=='' or lastname=='' or password=='':
         print("Fill in the  fields")
@@ -164,8 +165,7 @@ def main():
                             
                         save_account(create_credentials(account_name, username, password))
                         print('\n')
-                        print(
-                            f"New account: {account_name}  with user name : {username} and password :{password} created successfully")
+                        print(f"New account: {account_name}  with user name : {username} and password :{password} created successfully")
                         print('\n')
         
                 elif shortcode == 'da':
@@ -214,15 +214,6 @@ def main():
                     break
                 else:
                     print("Please use the short codes")
-                    
-        # else:
-        #     refresh()
-        #     print("That account does not exist. Please create one")
-        #     print('\n')
-
-        #     main()
-
-        #     print('\n')
             
         
 if __name__ == '__main__':
