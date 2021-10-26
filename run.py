@@ -165,7 +165,7 @@ def main():
                         save_account(create_credentials(account_name, username, password))
                         print('\n')
                         print(
-                            f"New account: {account_name}  with user name : {username} created :{password}")
+                            f"New account: {account_name}  with user name : {username} and password :{password} created successfully")
                         print('\n')
         
                 elif shortcode == 'da':
